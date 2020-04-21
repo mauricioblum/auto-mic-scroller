@@ -1,0 +1,46 @@
+{
+  "name": "Auto Mic Scroller",
+  "version": "0.1",
+  "description": "Scroll page using your microphone input",
+  "manifest_version": 2,
+  "incognito": "split",
+
+  "browser_action": {
+    "default_title": "Auto Mic Scroller",
+    "default_popup": "index.html",
+    "default_icon": {
+      "128": "images/scrollmic-logo-128.png",
+      "512": "images/scrollmic-logo.png"
+    }
+  },
+
+  "web_accessible_resources": [
+    "index.js",
+    "scripts/soundmeter.js",
+    "iframe.html",
+    "scripts/background.js",
+    "scripts/scroll.js"
+  ],
+
+  "permissions": ["tabs"],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.cifraclub.com.br/*",
+        "*://tabs.ultimate-guitar.com/tab/*"
+      ],
+      "js": ["scripts/getAudioPermission.js"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["scripts/background.js"],
+    "persistent": true
+  },
+
+  "icons": {
+    "128": "images/scrollmic-logo-128.png",
+    "512": "images/scrollmic-logo.png"
+  }
+}
