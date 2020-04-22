@@ -22,7 +22,7 @@
     "scripts/scroll.js"
   ],
 
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "alarms"],
 
   "content_scripts": [
     {

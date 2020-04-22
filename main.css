@@ -15,3 +15,8 @@ div.disabled {
   height: 0px;
   display: none;
 }
+div.attributions p {
+  font-size: 0.9em;
+  color: gray;
+  line-height: 0.9;
+}

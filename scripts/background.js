@@ -1,8 +1,10 @@
+let audioEnabled = "";
+
 chrome.tabs.onActivated.addListener(function (activeInfo) {
   changeIcon();
 });
 
-chrome.tabs.onUpdated.addListener(function (changeInfo) {
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo) {
   changeIcon();
 });
 

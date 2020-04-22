@@ -2,6 +2,8 @@ try {
   if (!window.audioContext) {
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     window.audioContext = new AudioContext();
+  } else {
+    window.audioContext.resume();
   }
 } catch (e) {
   alert("Web Audio API not supported.");
