@@ -12,10 +12,38 @@ if (localStorage.getItem('bgAudioStatus')){
 const recordBtn = document.getElementById("start-stop");
 const scrollSelector = document.getElementById("scrollSpeed");
 
+let innerScrollSpeed;
+
+if (localStorage.getItem('innerScrollSpeed')){
+  innerScrollSpeed = localStorage.getItem('innerScrollSpeed');
+  scrollSelector.value = innerScrollSpeed;
+} else {
+  innerScrollSpeed = localStorage.setItem('innerScrollSpeed', "1");
+}
+
 scrollSelector.addEventListener("change", (e) => {
-  console.log(e);
+  innerScrollSpeed = e.target.value;
+  localStorage.setItem('innerScrollSpeed', e.target.value)
   chrome.tabs.executeScript({
-    code: `alert(${23123312})`,
+    code: `
+    function createScript() {
+      const scriptSpeed = document.createElement('script');
+      scriptSpeed.id = 'SCRIPT-SPEED-${e.target.value}';
+      scriptSpeed.className = 'script-speed';
+      scriptSpeed.type = 'text/javascript';
+      scriptSpeed.async = true;
+      scriptSpeed.onload = function(){
+      };
+      scriptSpeed.src = chrome.runtime.getURL("/scripts/setScrollSpeed.js");
+      document.body.appendChild(scriptSpeed);
+    }
+    if (!document.querySelector('[id^="SCRIPT-SPEED-"]')) {
+      createScript();
+    } else {
+      document.body.removeChild(document.querySelector('[id^="SCRIPT-SPEED-"]'));
+      createScript();
+    }
+    `
   });
 });
 
@@ -73,16 +101,7 @@ recordBtn.addEventListener(
         `,
       });
     }
+    window.close();
   },
   false
 );
-
-chrome.runtime.onConnect.addListener((port) => {
-  console.log(port);
-});
-
-function getAudioStatus() {
-  chrome.storage.sync.get("audioStatus", function (result) {
-    return result;
-  });
-}

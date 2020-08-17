@@ -22,7 +22,8 @@
     "scripts/background.js",
     "scripts/scroll.js",
     "scripts/resumeRecording.js",
-    "scripts/stopRecording.js"
+    "scripts/stopRecording.js",
+    "scripts/setScrollSpeed.js"
   ],
 
   "permissions": [

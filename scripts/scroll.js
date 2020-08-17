@@ -3,6 +3,7 @@ let audioStatus = true;
 window.micScroller = { 
   start: () => resumeAfterStopped(),
   stop: () => stopAllRecordings(),
+  setScrollSpeed: (speed) => { scrollSpeed = speed },
 };
 try {
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -31,6 +32,14 @@ navigator.mediaDevices
   });
 
 function resumeAfterStopped() {
+
+  try {
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    window.audioContext = new AudioContext();
+  } catch (e) {
+    alert("Web Audio API not supported.");
+  }
+
   audioStatus = true;
   navigator.mediaDevices
   .getUserMedia(constraints)
@@ -49,6 +58,9 @@ function resumeAfterStopped() {
 function stopAllRecordings() {
   window.soundMeter.instant = 0;
   window.soundMeter.stop();
+  window.stream.getTracks().forEach(function(track) {
+    track.stop();
+  });
   audioStatus = false;
 }
 
@@ -70,6 +82,7 @@ function handleSuccess(stream) {
 
 
 function scrollByVolume(volume) {
+  console.log('Current Scroll Speed', scrollSpeed);
   window.focus();
   if (volume > 0.09) {
     if (window.location.host.includes("cifraclub")) {
