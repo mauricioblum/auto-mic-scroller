@@ -1,4 +1,4 @@
-let audioEnabled = "";
+let audioEnabled = true;
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
   changeIcon();
@@ -19,7 +19,8 @@ function changeIcon() {
       var tab = tabs[0];
       if (
         tab.url.includes("cifraclub") ||
-        tab.url.includes("ultimate-guitar")
+        tab.url.includes("ultimate-guitar") || 
+        tab.url.includes("e-chords")
       ) {
         chrome.browserAction.setIcon({
           path: "images/scrollmic-logo-recording.png",

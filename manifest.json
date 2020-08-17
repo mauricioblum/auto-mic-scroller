@@ -1,6 +1,6 @@
 {
   "name": "Auto Mic Scroller",
-  "version": "0.1",
+  "version": "0.2",
   "description": "Scroll page using your microphone input",
   "manifest_version": 2,
   "incognito": "split",
@@ -18,17 +18,28 @@
     "index.js",
     "scripts/soundmeter.js",
     "iframe.html",
+    "index.html",
     "scripts/background.js",
-    "scripts/scroll.js"
+    "scripts/scroll.js",
+    "scripts/resumeRecording.js",
+    "scripts/stopRecording.js"
   ],
 
-  "permissions": ["tabs", "alarms"],
+  "permissions": [
+    "tabs",
+    "alarms",
+    "storage",
+    "*://www.cifraclub.com.br/*",
+    "*://tabs.ultimate-guitar.com/tab/*",
+    "*://www.e-chords.com/chords/*"
+  ],
 
   "content_scripts": [
     {
       "matches": [
         "*://www.cifraclub.com.br/*",
-        "*://tabs.ultimate-guitar.com/tab/*"
+        "*://tabs.ultimate-guitar.com/tab/*",
+        "*://www.e-chords.com/chords/*"
       ],
       "js": ["scripts/getAudioPermission.js"]
     }

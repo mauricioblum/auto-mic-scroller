@@ -20,3 +20,13 @@ div.attributions p {
   color: gray;
   line-height: 0.9;
 }
+
+button#start-stop {
+  padding: 20px;
+  background-color: #7159c1;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: 1px solid #7159c1;
+  cursor: pointer;
+}

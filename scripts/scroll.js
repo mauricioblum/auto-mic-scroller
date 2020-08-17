@@ -1,10 +1,12 @@
+let scrollSpeed = 1;
+let audioStatus = true;
+window.micScroller = { 
+  start: () => resumeAfterStopped(),
+  stop: () => stopAllRecordings(),
+};
 try {
-  if (!window.audioContext) {
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    window.audioContext = new AudioContext();
-  } else {
-    window.audioContext.resume();
-  }
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+  window.audioContext = new AudioContext();
 } catch (e) {
   alert("Web Audio API not supported.");
 }
@@ -28,11 +30,32 @@ navigator.mediaDevices
     console.log(error);
   });
 
+function resumeAfterStopped() {
+  audioStatus = true;
+  navigator.mediaDevices
+  .getUserMedia(constraints)
+  .then((mediaStream) => {
+    //in promise will be triggered user permission request
+    console.log("success", mediaStream);
+
+    handleSuccess(mediaStream);
+  })
+  .catch((error) => {
+    //manage error
+    console.log(error);
+  });
+}
+
+function stopAllRecordings() {
+  window.soundMeter.instant = 0;
+  window.soundMeter.stop();
+  audioStatus = false;
+}
+
 function handleSuccess(stream) {
-  // Put variables in global scope to make them available to the
-  // browser console.
   window.stream = stream;
   const soundMeter = (window.soundMeter = new SoundMeter(window.audioContext));
+  window.soundMeter = soundMeter;
   soundMeter.connectToSource(stream, function (e) {
     if (e) {
       alert(e);
@@ -44,17 +67,23 @@ function handleSuccess(stream) {
   });
 }
 
+
+
 function scrollByVolume(volume) {
   window.focus();
   if (volume > 0.09) {
     if (window.location.host.includes("cifraclub")) {
       window.scrollBy(
         0,
-        document.querySelector("div.wrapper").offsetHeight / 1500
+        document.querySelector("div.wrapper").offsetHeight /
+          (scrollSpeed * 1500)
       );
     } else if (window.location.host.includes("ultimate-guitar")) {
-      window.scrollBy(0, document.body.offsetHeight / 1500);
-    } else {
+      window.scrollBy(0, document.body.offsetHeight / (scrollSpeed * 1500));
+    } else if (window.location.host.includes("e-chords")) {
+      window.scrollBy(0, document.body.offsetHeight / (scrollSpeed * 1500));
+    }
+    else {
       return;
     }
   }
