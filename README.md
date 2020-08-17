@@ -2,6 +2,8 @@
 
 Chrome extension to automatically scroll page using browser's input active mic.
 
+![](docs/extension-demo-video.gif)
+
 ## How to install
 
 ---
@@ -14,4 +16,4 @@ Chrome extension to automatically scroll page using browser's input active mic.
 
 ### Websites currently working
 
-At the moment only `ultimate-guitar.com` and `cifraclub.com.br` are working, more websites will be added in the future.
+At the moment only `ultimate-guitar.com`, `cifraclub.com.br` and `e-chords.com` are working, more websites will be added in the future.
