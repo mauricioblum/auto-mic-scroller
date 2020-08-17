@@ -8,7 +8,7 @@ Chrome extension to automatically scroll page using browser's input active mic.
 
 ---
 
-1. Click [here](https://github.com/mauricioblum/auto-mic-scroller/archive/alpha-0.1.zip) to download the latest version.
+1. Click [here](https://github.com/mauricioblum/auto-mic-scroller/files/5085535/alpha-0.2.zip) to download the latest version.
 
 2. open Extensions from chrome context menu.
 
