@@ -4,16 +4,25 @@ Chrome extension to automatically scroll page using browser's input active mic.
 
 ![](docs/extension-demo-video.gif)
 
-## How to install
+## Features ✨
 
----
+- Play & stop with page controls.
+- Speed configurations
 
-1. Click [here](https://github.com/mauricioblum/auto-mic-scroller/files/5085535/alpha-0.2.zip) to download the latest version.
+### Current websites allowed 🟢
 
-2. open Extensions from chrome context menu.
+- Ultimate-guitar.com
+- cifraclub.com.br
+- e-chords.com
 
-3. Choose `Load unpacked`(Open Develop Mode first)，Click folder you just uncompressed, and there you go!
+## How to install 🚀
 
-### Websites currently working
+1. Check the releases page or click [here](https://github.com/mauricioblum/auto-mic-scroller/releases/download/1.0/mic-scroller-1.0.zip) to download the latest version.
 
-At the moment only `ultimate-guitar.com`, `cifraclub.com.br` and `e-chords.com` are working, more websites will be added in the future.
+2. Open Extensions from chrome context menu.
+
+3. Choose `Load unpacked` (Open / Enable Developer Mode first)，Click folder you just uncompressed, and there you go!
+
+## Contributing
+
+Feel free to submit a PR to support more websites, or submit an issue if you find something wrong!
