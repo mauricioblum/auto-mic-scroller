@@ -10,6 +10,21 @@ div.container {
   text-align: center;
 }
 
+div.container img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+div.container .aboutme {
+  display: block;
+}
+
+div.container p {
+  margin: 0;
+  padding: 0;
+}
+
 div.disabled {
   width: 0px;
   height: 0px;
@@ -18,15 +33,5 @@ div.disabled {
 div.attributions p {
   font-size: 0.9em;
   color: gray;
-  line-height: 0.9;
-}
-
-button#start-stop {
-  padding: 20px;
-  background-color: #7159c1;
-  color: white;
-  font-weight: bold;
-  font-size: 1.1rem;
-  border: 1px solid #7159c1;
-  cursor: pointer;
+  line-height: normal;
 }

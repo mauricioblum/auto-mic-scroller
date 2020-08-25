@@ -20,10 +20,7 @@
     "iframe.html",
     "index.html",
     "scripts/background.js",
-    "scripts/scroll.js",
-    "scripts/resumeRecording.js",
-    "scripts/stopRecording.js",
-    "scripts/setScrollSpeed.js"
+    "scripts/scroll.js"
   ],
 
   "permissions": [
@@ -42,7 +39,8 @@
         "*://tabs.ultimate-guitar.com/tab/*",
         "*://www.e-chords.com/chords/*"
       ],
-      "js": ["scripts/getAudioPermission.js"]
+      "js": ["scripts/getAudioPermission.js"],
+      "css": ["mic-scroller-inject.css"]
     }
   ],
 
