@@ -1,6 +1,6 @@
 {
   "name": "Auto Mic Scroller",
-  "version": "0.2",
+  "version": "1.0",
   "description": "Scroll page using your microphone input",
   "manifest_version": 2,
   "incognito": "split",
